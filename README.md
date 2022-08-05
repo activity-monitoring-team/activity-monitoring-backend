@@ -1,2 +1,2 @@
-# tisoft_web
+# TISoft Web
 Repository of our website
