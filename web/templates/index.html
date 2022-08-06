@@ -242,14 +242,29 @@
                             <div class="container-large">
                                 <div data-w-id="beab430b-5e6b-64ac-e628-9f68ec4af1e4" style="opacity:0" class="home-intro_wrapper">
                                     <div id="w-node-_53281f82-77b2-26f4-9675-aa768bb15878-b048e27a" class="column-wrapper-60">
-                                        <h2 id="w-node-_705439a5-f017-441a-ef66-48fb8ec46b81-b048e27a" class="heading-xlarge">Привет!<br> Мы - TISOft!</h2>
+                                        <h2 id="w-node-_705439a5-f017-441a-ef66-48fb8ec46b81-b048e27a" class="heading-xlarge">#Hello world<br><br> Мы - <b>TISoft!</b></h2>
                                     </div>
                                     <div id="w-node-_1d70b006-8126-d8c9-25d9-172386059c1d-b048e27a" class="column-wrapper-25">
-                                        <p class="home_intro-text" >Наша команда разработчиков объединяет высококвалифицированных специалистов, готовых 
-                                            предоставить решения задач в области автоматизации и цифровизации ваших бизнес процессов.
-                                            (Находясь в постоянном развитии своих навыков,) TISoft ответственно относится к выполнению поставленных требований, 
+                                        <p class="home_intro-text">Наша команда разработчиков объединяет высококвалифицированных специалистов, готовых 
+                                            предоставить решения задач в области автоматизации и цифровизации ваших бизнес процессов.</p>
+                                            <p class="home_intro-text">TISoft ответственно относится к выполнению поставленных требований, 
                                             доводя проекты до логического завершения. +Все участники команды находятся в постоянном развитии своих профессиональных навыков,
                                             гарантируя качество и оперативность разработки. </p>
+                                        <style>
+                                            p {
+                                                margin: 0;
+                                                text-indent: 3ch;
+                                              }
+                                              
+                                            p.pilcrow {
+                                                text-indent: 0;
+                                                display: inline;
+                                            }
+                                            p.pilcrow + p.pilcrow::before {
+                                            content: " ¶ ";
+                                            }
+                                        </style>
+
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +276,7 @@
                                 <div class="home-services_wrapper">
                                     <div class="column-resizing-fix w-embed">
                                         <style>
-                                        @media only screen and (max-width: 1500px) {
+                                        @media only screen and (max-width: 100%) {
                                         .service_text {
                                             min-height: 5rem;
                                         }
@@ -283,8 +298,7 @@
                                             <h3 class="home-value_heading is-wrapped">Data Analysis</h3>
                                         </div>  
                                         <div class="home-service_column">
-                                            <p class="about">Разработка парсинговых сервисов на Python с применением библиотек Requests, bs4, selenium, aiohttp. 
-                                                Работа с многопоточностью и базами данных.</p>
+                                            <p class="about">Парсинг — это сбор информации из сторонних источников и сайтов для использования полученных данных в различных целях, от аналитики до копирования, простыми словами, это сбор данных из различных источников.</p>
                                         </div>
                                     </div>
                                     <div class="two-column-wrapper">
@@ -293,26 +307,27 @@
                                             <h3 class="home-value_heading is-wrapped">Frontend</h3>
                                         </div>
                                         <div class="home-service_column">
-                                            <p class="about">Большой опыт разработки FrontEnd с использованием Vue.js, WebPack, React.js и Docker.</p>
+                                            <p class="about">Frontend — это та самая «одежка» IT-сервиса, по которой встречают. Это весь внешний вид сайта или приложения — доступные пользователю кнопки, таблицы, блоки, детали и акценты, расставленные фронтенд-разработчиками.</p>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="two-column-wrapper">
                                         <div class="home-service_column" style="text-align: center;">
                                             <img src={% static 'images/back.png' %} loading="lazy" alt="big spaceship logo" height="300px" width="300px"/>
                                             <h3 class="home-value_heading is-wrapped">Backend</h3>
                                         </div>
                                         <div class="home-service_column" >
-                                            <p class="about">Реализация серверных задач и взаимодействие через API (Flask, MongoDB/PostgresSQL, Docker, SwaggerIO, Redis и Git).</p>
+                                            <p class="about">Backend — это разработка бизнес-логики продукта (сайта или веб-приложения). Бэкенд отвечает за взаимодействие пользователя с внутренними данными, которые потом отображает Frontend. Попросту говоря, это то, что скрыто от глаз пользователя и происходит вне его браузера и компьютера.</p>
                                         </div>
                                     </div>
-                                    <div class="two-column-wrapper">
+                                    <!-- <div class="two-column-wrapper">
                                         <div class="home-service_column" style="text-align: center;">
                                             <img src={% static 'images/database.png' %} loading="lazy" alt="big spaceship logo" height="300px" width="300px"/>
                                             <h3 class="home-value_heading is-wrapped">Database</h3>
                                         </div>
                                         <div class="home-service_column" style="text-align: center;">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -321,9 +336,9 @@
                         <div class="page-padding">
                             <div class="container-large">
                                 <div class="home_work-header">
-                                    <!--<div data-w-id="f5cf0809-4f41-bac6-c2a6-398a3a338b06" class="work_intro-rule">
+                                    {% comment %} <div data-w-id="f5cf0809-4f41-bac6-c2a6-398a3a338b06" class="work_intro-rule">
                                         <div class="rule_reveal"></div>
-                                    </div>-->
+                                    </div> {% endcomment %}
                                     <h2 data-w-id="6db1617c-5a63-9dbc-67f6-10ebb08d041f" style="opacity:0" class="heading-xlarge">Наши работы</h2>
                                 </div>
 
@@ -381,7 +396,7 @@
                                 <div class="home-services_wrapper">
                                     <div class="column-resizing-fix w-embed">
                                         <style>
-                                        @media only screen and (max-width: 1500px) {
+                                        @media only screen and (max-width: 100%) {
                                         .service_text {
                                             min-height: 5rem;
                                         }
@@ -409,12 +424,12 @@
                                                 <p style="margin-bottom: 20px;">88005553535</p>
                                             </div>
                                             <div>
-                                                <p style="margin-bottom: 20px;">qweryu@gmail.com</p>
+                                                <p style="margin-bottom: 20px;">tisoftkz@gmail.com</p>
                                             </div>
-                                            <a href="https://www.youtube.com/" class="networks">
+                                            <a href="https://t.me/tisoft_kz" class="networks">
                                                 <img src="{% static 'images/telegram.png' %}" height="50px" width="50px">
                                             </a>                                            
-                                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=18s" >
+                                            <a href="https://instagram.com/tisoft_kz?igshid=YmMyMTA2M2Y=" >
                                                 <img src="{% static 'images/instagram.png' %}" height="50px" width="50px">
                                             </a>
                                         </div>

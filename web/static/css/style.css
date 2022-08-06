@@ -1303,7 +1303,7 @@
     -webkit-transition: all 300ms ease;
     transition: all 300ms ease;
   }
-  
+
   .nav_link.is-three:hover {
     color: rgba(32, 0, 52, 0.8);
   }
