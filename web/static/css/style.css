@@ -3458,16 +3458,16 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 50%;
+    width: 100%;
     min-width: 700px;
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
     -webkit-box-flex: 1;
-    -webkit-flex: 1;
+    /*-webkit-flex: 1;*/
     -ms-flex: 1;
-    flex: 1;
+    /*flex: 1;*/
     grid-column-gap: 1rem;
   }
   
