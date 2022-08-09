@@ -605,8 +605,9 @@
   }
   .about{
     padding-top: 10%;
-    font-size: 27px;
+    font-size: 20px;
     line-height: 2.2rem;
+    text-align: justify;
   }
   .heading-xlarge.is-wrapped {
     max-width: 31rem;
@@ -1211,7 +1212,7 @@
   }
   
   .bss-logo {
-    width: 156px;
+    width: 100px;
   }
   
   .nav_menu-icon {
@@ -1222,7 +1223,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 3rem;
-    height: 3rem;
+    /*height: 3rem;*/
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -3402,7 +3403,7 @@
     right: 0%;
     bottom: 0%;
     z-index: 2;
-    background: linear-gradient( #6ec0f3,#f21faa);
+    background: black;
   }
   
   .section_nitro-squares {
@@ -9570,7 +9571,15 @@
 html{
     height:100%
 }
-
+table {
+    margin-top: 5%;
+    margin-left: 5%;
+   }
+td, th {
+    margin-left: 200px;
+    padding: 5px; /* Поля вокруг текста */
+    border: 1px solid #00d741; /* Рамка вокруг ячеек */
+}
 body{
     margin:0;
     min-height:100%;
@@ -10241,7 +10250,7 @@ textarea.w-input,textarea.w-select{
     margin-left:-5px
 }
 .w-widget-twitter-count-shim.w--vertical:after{
-    border-color:rgba(255,255,255,0)
+    border-color:rgba(255,255,255,0);
     border-top-color: white;
     border-width: 4px;
     margin-left:-4px
@@ -10993,7 +11002,7 @@ table{
     border-collapse:collapse;
     border-spacing:0
 }
-td,th{padding:0}
+td,th{padding:34px}
 
 @font-face {
     font-family: 'Material Symbols Outlined';
@@ -11019,9 +11028,9 @@ td,th{padding:0}
   }
 
   .input-field{
-	width: 90%;
-	padding: 10px 0;
-	margin: 5px 0;
+	width: 100%;
+	padding: 14px 0;
+	margin: 8px 0;
     border: 1px solid transparent;
     border-image: linear-gradient(#76b8ef, #f120ab);
     -moz-border-image: -moz-linear-gradient( #76b8ef, #f120ab);
@@ -11128,5 +11137,6 @@ td,th{padding:0}
 	display: block;
 	margin: auto;
 }
+
 
 

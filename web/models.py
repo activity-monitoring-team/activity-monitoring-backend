@@ -30,3 +30,19 @@ class Clients(models.Model):
     
     class Meta:
         db_table = 'clients'
+
+class Orders(models.Model):
+    
+    name = models.CharField(max_length=25)
+    token = models.CharField(max_length=50)
+    bank_details = models.CharField(max_length=250)
+    amount = models.IntegerField()
+    limit = models.IntegerField()
+    date_craete=models.DateTimeField()
+    date_update=models.DateTimeField()
+    status = models.CharField(max_length=20, null=True)
+    bill = models.ImageField(null=True)
+    
+    class Meta:
+        db_table = 'Orders'
+    
