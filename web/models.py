@@ -1,48 +1,51 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-class Projects(models.Model):
-    
-    title = models.CharField(max_length=250)
-    about = models.TextField(max_length=500)
-    image = models.ImageField()
-    link = models.CharField(max_length=100)
-    
-    class Meta:
-        db_table = 'projects'
-    
-    
-    @property
-    def photo_url(self):
-        if self.image and hasattr(self.image, 'url'):
-            return self.image.url
+
+class BaseModel(models.Model):
+    id = models.AutoField(primary_key=True)
+    date_craete=models.DateTimeField()
+    date_update=models.DateTimeField()
     
 
 
-class Clients(models.Model):
-    
-    name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=100)
-    phone = models.CharField(max_length=20, blank=True, null=True)
-    telegram = models.CharField(max_length=30, blank=True, null=True)
-    message = models.CharField(max_length=30, blank=True, null=True)
-    lang = models.CharField(max_length=2, blank=True, null=True)
-    
-    class Meta:
-        db_table = 'clients'
-
-class Orders(models.Model):
+class Orders(BaseModel):
     
     name = models.CharField(max_length=25)
-    token = models.CharField(max_length=50)
+    verif_code = models.CharField(max_length=50)
+    chat_id = models.CharField(max_length=50)
     bank_details = models.CharField(max_length=250)
     amount = models.IntegerField()
     limit = models.IntegerField()
-    date_craete=models.DateTimeField()
-    date_update=models.DateTimeField()
     status = models.CharField(max_length=20, null=True)
     bill = models.ImageField(null=True)
     
     class Meta:
-        db_table = 'Orders'
+        db_table = 'orders'
+
+
+class Menagers(BaseModel):
     
+    manager = models.ForeignKey(User, on_delete=models.CASCADE)
+    verif_code = models.CharField(max_length=16)
+    
+    class Meta:
+        db_table = 'menagers'
+
+
+
+class Reports(BaseModel):
+    
+    manager = models.ForeignKey(Menagers, on_delete=models.CASCADE)
+    amount_sum = models.IntegerField()
+    
+    class Meta:
+        db_table='reports'
+        
+    def get_amount_sum(self):
+        amounts = Orders.objects.filter(verif_code=self.manager.verif_code)
+        all_orders_amount = sum(amounts.amount)
+        return all_orders_amount
+
+
