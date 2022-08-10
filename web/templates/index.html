@@ -37,11 +37,13 @@
                                 
                                 <link rel="prefetch" href="/"/>
                                 <div class="page-title_wrapper">
-                                    <div class="Name">Темирлан</div>
+                                    
                                 </div>
                             </div>
+                            <div class="Name">Темирлан</div>
                             <div data-w-id="ddbe3c72-4e31-3364-d50d-247dea360273" class="nav_menu-icon">
-                                <div class="logout">Выход</div>
+                                
+                                <input type="button" class="btn-send" value="Выход" onclick="Validation()"/>
                             </div>
                         </div>
                     </div>
@@ -50,37 +52,37 @@
             <div class="nav_overlay"></div>
         </nav>
         <main>
-            {{form}}
-            <table >                
-                <tr>
-                    <td>Имя</td>
-                    <td>Токен</td>
-                    <td>Номер счета</td>
-                    <td>Сумма</td>
-                    <td>Остаток</td>
-                    <td>Дата создания</td>
-                    <td>Дата окончания</td>
-                    <td>Статус</td>
-                    <td>Чек</td>
-                  
-                </tr>
-                
-                {% for el in orders %}
-                    <tr>
-                        <form method="post">
-                            <td>{{el.name}}</td>
-                            <td>{{el.token}}</td>
-                            <td>{{el.bank_details}}</td>
-                            <td>{{el.amount}}</td>
-                            <td>{{el.limit}}</td>
-                            <td>{{el.date_craete}}</td>
-                            <td>{{el.date_update}}</td>
-                            <td>{{el.status}}</td>
-                            <td>{{el.bill}}</td>
-                            <button type="button" class="submit-btn1" onClick='location.href="index.html"'>Войти</button>
-                        </form>
-                    </tr>
-                {% endfor %}
-            </table>
+
+            <form class="title_form" method="post">
+                <input class="input_table" value="Имя" disabled></input>
+                <input class="input_table" value="Токен" disabled></input>
+                <input class="input_table" value="chat_id" disabled></input>
+                <input class="input_table_2" value="Реквизиты" disabled></input>
+                <input class="input_table_1" value="Сумма" disabled></input>
+                <input class="input_table_1" value="Остаток" disabled></input>
+                <input class="input_table_date" value="Дата создания" disabled></input>
+                <input class="input_table_date" value="Дата окончания" disabled></input>
+                <input class="input_table" value="Статус" disabled></input>
+                <input class="input_table_chek" value="Чек" disabled></input>
+            </form>
+            {% for el in orders %}
+                <form method="post">
+                    <input class="input_table" value="{{el.name}}" disabled></input>
+                    <input class="input_table" value="{{el.verif_code}}" disabled></input>
+                    <input class="input_table" value="{{el.chat_id}}" disabled></input>
+                    <input class="input_table_2" value="{{el.bank_details}}" disabled></input>
+                    <input class="input_table_1" value="{{el.amount}}" disabled></input>
+                    <input class="input_table_1" value="{{el.limit}}"></input>
+                    <input class="input_table_date" type="date" value="{{el.date_craete | date:'Y-m-d'}}"></input>
+                    <input class="input_table_date" type="date" value="{{el.date_update | date:'Y-m-d'}}"></input>
+                    <select class="input_table_list">
+                        <option>{{el.status}}</option>
+                        <option>Принято</option>
+                        <option>Отклонено</option>
+                    </select>
+                    <input class="input_table_file" type="file" name="file" value="Прикрепите чек">
+                    <input type="button" class="btn-send1" value="Сохранить" onclick="Validation()"/>
+                </form>
+            {% endfor %}
         </main>
     </body>
