@@ -40,10 +40,10 @@
                                     
                                 </div>
                             </div>
-                            <div class="Name">Темирлан</div>
+                            <div class="Name">{{request.user}}</div>
                             <div data-w-id="ddbe3c72-4e31-3364-d50d-247dea360273" class="nav_menu-icon">
-                                
-                                <input type="button" class="btn-send" value="Выход" onclick="Validation()"/>
+                                {%url 'logout_page' as url_logout_page%}
+                                <input type="button" class="btn-send" value="Выход" onclick="document.location='{{url_logout_page}}'"/>                              
                             </div>
                         </div>
                     </div>

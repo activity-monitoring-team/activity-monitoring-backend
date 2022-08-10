@@ -18,7 +18,7 @@
   }
   .form-box {
     width: 380px;
-    height: 500px;
+    height: 370px;
     position: relative;
     margin: 6% auto;
 
@@ -30,8 +30,8 @@
     width: 220px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 2px 2px #00d741;
     border-radius: 20px;
+    text-align: center;
   }
   .toggle-btn {
     padding: 15px 24px;
@@ -54,7 +54,7 @@
     transition: 0.5s;
   }
   .input-group {
-    top: 180px;
+    top: 85px;
     position: absolute;
     width: 280px;
     transition: 0.5s;
@@ -90,7 +90,7 @@
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin-top: auto;
+    margin-top: 25px;
     background-color: Transparent;
     background-repeat: no-repeat;
     border: 0;
@@ -222,7 +222,7 @@
     bottom: 210px;
   }
   #login {
-    left: 50px;
+    left: -30px;
   }
   #register {
     left: 450px;
@@ -232,7 +232,7 @@
     top: 260px;
   }
   .input-group2 {
-    top: 120px;
+    top: 70px;
     position: absolute;
     width: 280px;
     height: 350px;

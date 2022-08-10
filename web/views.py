@@ -2,37 +2,42 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from .models import Orders, BaseModel
 from datetime import datetime
-#from .forms import OrdersForm
+from .forms import LoginForm
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string, get_template
 from django.utils.html import strip_tags
 from django.utils import timezone
 from datetime import datetime
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 
 def home(request):
 
 
-    orders = Orders.objects.all()
+    
 
 
     if request.method == 'GET':
-        return render(request, 'index.html', {'orders': orders})
+        return render(request, 'auth.html')
     
 
-#def index(request):
-   
+def index(request):
+    orders = Orders.objects.all()
+    context = {
+        'orders': orders
+    }
+    template = 'index.html'
+    return render(request, template, context)
 
-    
-   # form = OrdersForm()
+class UserLogin(LoginView):
+     template = 'auth.html'
+     form_class = LoginForm
+     succes_url = reverse_lazy('index')
+     def get_success_url(self) -> str:
+         return self.succes_url
 
-    #data = {
-    #    'form': form
-   # }
-
-    #return render(request, 'index.html', data)
-
-  #  elif request.method == 'POST':
-   #     return redirect ('index')
+class UserLogOut(LogoutView):
+     next_page = reverse_lazy('login_page')
