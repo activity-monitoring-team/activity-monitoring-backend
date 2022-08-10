@@ -11,19 +11,11 @@ from django.utils import timezone
 from datetime import datetime
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-
-
-
-def home(request):
-
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
     
-
-
-    if request.method == 'GET':
-        return render(request, 'auth.html')
-    
-
+@login_required(login_url='/')
 def index(request):
     orders = Orders.objects.all()
     context = {
@@ -32,6 +24,8 @@ def index(request):
     template = 'index.html'
     return render(request, template, context)
 
+
+    
 class UserLogin(LoginView):
      template = 'auth.html'
      form_class = LoginForm

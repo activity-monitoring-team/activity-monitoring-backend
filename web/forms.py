@@ -14,7 +14,7 @@ class LoginForm(AuthenticationForm, forms.ModelForm):
         model = User
         fields = ('username', 'password')
     
-    username = forms.CharField(widget=forms.TextInput(attrs={"class":"input-field", 'placeholder':'Введите Ваше имя'}))
-    password = forms.CharField(widget=forms.TextInput(attrs={"class":"input-field", 'placeholder':'Введите Ваше имя', 'type':'password'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={"class":"input-field", 'placeholder':'Логин'}))
+    password = forms.CharField(widget=forms.TextInput(attrs={"class":"input-field", 'placeholder':'Пароль', 'type':'password'}))
 
 
