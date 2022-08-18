@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 
 class BaseModel(models.Model):
     id = models.AutoField(primary_key=True)
-    date_craete=models.DateTimeField()
     date_update=models.DateTimeField()
 
 
@@ -12,12 +12,13 @@ class BaseModel(models.Model):
 
 class Orders(BaseModel):
     
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, null=True)
     verif_code = models.CharField(max_length=50)
     chat_id = models.CharField(max_length=50)
     bank_details = models.CharField(max_length=250)
     amount = models.IntegerField()
-    limit = models.IntegerField()
+    limit = models.IntegerField(null=True)
+    date_craete=models.DateTimeField()
     status = models.CharField(max_length=20, null=True)
     bill = models.ImageField(null=True)
     
@@ -28,12 +29,20 @@ class Orders(BaseModel):
 class Menagers(BaseModel):
     
     manager = models.ForeignKey(User, on_delete=models.CASCADE)
-    verif_code = models.CharField(max_length=16)
+    verif_code = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
     class Meta:
         db_table = 'menagers'
 
+class Users(BaseModel):
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=25, null=True)
+    verif_code = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    chat_id = models.IntegerField(null = True)
+    
+    class Meta:
+        db_table = 'users'
 
 class Reports(BaseModel):
     
