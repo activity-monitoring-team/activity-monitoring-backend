@@ -1,6 +1,5 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from .models import Orders, BaseModel
 from datetime import datetime
 from .forms import LoginForm
 from django.conf import settings
@@ -17,10 +16,7 @@ from django.contrib.auth.decorators import login_required
     
 @login_required(login_url='/')
 def index(request):
-    orders = Orders.objects.all()
-    context = {
-        'orders': orders
-    }
+    context = dict()
     template = 'index.html'
     return render(request, template, context)
 

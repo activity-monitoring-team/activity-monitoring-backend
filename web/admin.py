@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Orders, Menagers, Users
+from .models import UserInfo, Role
 
-admin.site.register(Orders)
-admin.site.register(Users)
-admin.site.register(Menagers)
-
+admin.site.register(UserInfo)
+admin.site.register(Role)
